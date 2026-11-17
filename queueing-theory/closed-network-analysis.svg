@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.2" viewBox="4488 5080 19643 12701" preserveAspectRatio="xMidYMid" fill-rule="evenodd" stroke-width="28.222" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" xmlns:ooo="http://xml.openoffice.org/svg/export" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:presentation="http://sun.com/xmlns/staroffice/presentation" xmlns:smil="http://www.w3.org/2001/SMIL20/" xmlns:anim="urn:oasis:names:tc:opendocument:xmlns:animation:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xml:space="preserve">
+<svg version="1.2" viewBox="4488 5715 19643 11431" preserveAspectRatio="xMidYMid" fill-rule="evenodd" stroke-width="28.222" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" xmlns:ooo="http://xml.openoffice.org/svg/export" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:presentation="http://sun.com/xmlns/staroffice/presentation" xmlns:smil="http://www.w3.org/2001/SMIL20/" xmlns:anim="urn:oasis:names:tc:opendocument:xmlns:animation:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xml:space="preserve">
  <defs>
   <font id="EmbeddedFont_1" horiz-adv-x="2048">
    <font-face font-family="Arial embedded" units-per-em="2048" font-weight="normal" font-style="normal" ascent="1855" descent="442"/>
@@ -51,11 +51,11 @@
    <path d="M 173,740 C 173,903 231,1043 346,1159 462,1274 601,1332 765,1332 928,1332 1067,1274 1183,1159 1299,1043 1357,903 1357,740 1357,577 1299,437 1183,322 1067,206 928,148 765,148 601,148 462,206 346,322 231,437 173,577 173,740 Z"/>
   </g>
  </defs>
- <g ooo:name="page79" class="Page">
+ <g ooo:name="page81" class="Page">
   <g class="com.sun.star.drawing.CustomShape">
    <g id="id3">
-    <rect class="BoundingBox" stroke="none" fill="none" x="8890" y="5080" width="15241" height="12701"/>
-    <path fill="rgb(221,221,221)" stroke="none" d="M 16510,17780 L 8890,17780 8890,5080 24130,5080 24130,17780 16510,17780 Z"/>
+    <rect class="BoundingBox" stroke="none" fill="none" x="8890" y="5715" width="15241" height="11431"/>
+    <path fill="rgb(221,221,221)" stroke="none" d="M 16510,17145 L 8890,17145 8890,5715 24130,5715 24130,17145 16510,17145 Z"/>
    </g>
   </g>
   <g class="Group">
@@ -220,8 +220,8 @@
   </g>
   <g ooo:text-adjust="left" class="TextShape">
    <g id="id26">
-    <rect class="BoundingBox" stroke="none" fill="none" x="5915" y="12735" width="990" height="1065"/>
-    <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="6216" y="13487"><tspan font-family="Arial, sans-serif" font-size="635px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Z</tspan></tspan></tspan></text>
+    <rect class="BoundingBox" stroke="none" fill="none" x="5022" y="12700" width="2599" height="1065"/>
+    <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="5323" y="13452"><tspan font-family="Arial, sans-serif" font-size="635px" font-weight="400" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Z  = 15</tspan></tspan></tspan></text>
    </g>
   </g>
   <g ooo:text-adjust="left" class="TextShape">
