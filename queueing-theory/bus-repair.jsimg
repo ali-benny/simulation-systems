@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
-<archive xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="bus-repair.jsimg" timestamp="Thu Nov 12 13:33:07 CET 2026" xsi:noNamespaceSchemaLocation="Archive.xsd">
+<archive xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="bus-repair.jsimg" timestamp="Thu Nov 19 14:36:24 CET 2026" xsi:noNamespaceSchemaLocation="Archive.xsd">
     <sim disableStatisticStop="false" logDecimalSeparator="." logDelimiter="," logPath="/home/moreno/JMT" logReplaceMode="0" maxEvents="-1" maxSamples="10000000" name="bus-repair.jsimg" polling="1.0" xsi:noNamespaceSchemaLocation="SIMmodeldefinition.xsd">
         <userClass name="Class1" priority="0" referenceSource="Source 1" softDeadline="0.0" type="open"/>
         <node name="Source 1">
@@ -117,7 +117,7 @@
                                     <value>Sink 1</value>
                                 </subParameter>
                                 <subParameter classPath="java.lang.Double" name="probability">
-                                    <value>0.3</value>
+                                    <value>0.7</value>
                                 </subParameter>
                             </subParameter>
                             <subParameter classPath="jmt.engine.random.EmpiricalEntry" name="EmpiricalEntry">
@@ -125,7 +125,7 @@
                                     <value>Repair</value>
                                 </subParameter>
                                 <subParameter classPath="java.lang.Double" name="probability">
-                                    <value>0.7</value>
+                                    <value>0.3</value>
                                 </subParameter>
                             </subParameter>
                         </subParameter>
@@ -252,24 +252,4 @@
             <position angle="0.0" rotate="false" x="675.0" y="144.0"/>
         </station>
     </jmodel>
-    <results elapsedTime="360" logDecimalSeparator="." logDelimiter="," pollingInterval="1.0" xsi:noNamespaceSchemaLocation="Results.xsd">
-        <measure alpha="0.99" analyzedSamples="40960" discardedSamples="65" finalValue="49.23354587907304" name="Inspect_Class1_Response Time" nodeType="station" precision="0.03" referenceClass="Class1" referenceStation="Inspect" state="1" type="2">
-            <sample lastIntervalAvgValue="49.21795393446853" lowerBound="48.38249700843892" meanValue="49.23354587907304" simulationTime="4919736.718292651" upperBound="50.084594749707165"/>
-        </measure>
-        <measure alpha="0.99" analyzedSamples="61440" discardedSamples="340" finalValue="249.31577297222577" name="Repair_Class1_Response Time" nodeType="station" precision="0.03" referenceClass="Class1" referenceStation="Repair" state="1" type="2">
-            <sample lastIntervalAvgValue="249.34610893143454" lowerBound="243.8494435976994" meanValue="249.31577297222577" simulationTime="1.0594944936699094E7" upperBound="254.78210234675214"/>
-        </measure>
-        <measure alpha="0.99" analyzedSamples="40960" discardedSamples="0" finalValue="0.325325911687424" name="Inspect_Class1_Utilization" nodeType="station" precision="0.03" referenceClass="Class1" referenceStation="Inspect" state="1" type="6">
-            <sample lastIntervalAvgValue="0.3245574017334302" lowerBound="0.31781249264258904" meanValue="0.325325911687424" simulationTime="2918419.9019881585" upperBound="0.3328393307322589"/>
-        </measure>
-        <measure alpha="0.99" analyzedSamples="56320" discardedSamples="1660" finalValue="0.5805851557743906" name="Repair_Class1_Utilization" nodeType="station" precision="0.03" referenceClass="Class1" referenceStation="Repair" state="1" type="6">
-            <sample lastIntervalAvgValue="0.5802765291535644" lowerBound="0.5668801347404429" meanValue="0.5805851557743906" simulationTime="6239427.352151207" upperBound="0.5942901768083384"/>
-        </measure>
-        <measure alpha="0.99" analyzedSamples="81920" discardedSamples="125" finalValue="0.4107887544524519" name="Inspect_Class1_Number of Customers" nodeType="station" precision="0.03" referenceClass="Class1" referenceStation="Inspect" state="1" type="0">
-            <sample lastIntervalAvgValue="0.41045186673461914" lowerBound="0.4002639683981385" meanValue="0.4107887544524519" simulationTime="4919162.156598029" upperBound="0.4213135405067653"/>
-        </measure>
-        <measure alpha="0.99" analyzedSamples="102400" discardedSamples="895" finalValue="1.4500227918726993" name="Repair_Class1_Number of Customers" nodeType="station" precision="0.03" referenceClass="Class1" referenceStation="Repair" state="1" type="0">
-            <sample lastIntervalAvgValue="1.457243788671947" lowerBound="1.4096722246873656" meanValue="1.4500227918726993" simulationTime="8850632.084443837" upperBound="1.490373359058033"/>
-        </measure>
-    </results>
 </archive>
