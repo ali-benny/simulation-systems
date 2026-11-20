@@ -38,7 +38,8 @@ public class SimTest extends Simulation {
         Event e4 = new MyEvent(21, "e4");
         schedule( e1 );
         schedule( e2 );
-        scheduleBefore( e3, e2 );
+        //scheduleBefore( e3, e2 );
+        schedule( e3 );
         schedule( e4 );
     }
 
