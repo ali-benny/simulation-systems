@@ -1,6 +1,6 @@
 /****************************************************************************
  *
- * Mean.java -- mean computation.
+ * TimeWeighted.java -- time-weighted average.
  *
  * Copyright (C) 2026 Moreno Marzolla
  *
@@ -19,50 +19,49 @@
  *
  ****************************************************************************/
 
-/**
- * This class computes the minimum, maximum, and average of a
- * sequence of observations v_0, v_1, ... v_{n-1}.
- */
-public class Mean implements Variable {
-    final String name;
-    double min, max, sum, sumsq;
-    int count;
+package jdes;
 
-    public Mean( String name ) {
+/**
+ * This class computes the time-weighted average of a sequence of
+ * observations (0, 0), (v_1, t_1), (v_2, t_2), ... (v_{n-1},
+ * t_{n-1}).  The initial observation is assumed to be the value 0 at
+ * time 0.
+ */
+public class TimeWeighted implements Variable {
+    final String name;
+    double lastVal;
+    double lastTime;
+    double sum; // running integral of the observations
+    int count; // number of observations
+
+    public TimeWeighted(String name) {
         this.name = name;
-        this.sum = 0;
-        this.sumsq = 0;
-        this.count = 0;
-        this.min = Double.POSITIVE_INFINITY;
-        this.max = Double.NEGATIVE_INFINITY;
+        lastVal = 0;
+        lastTime = 0;
+        sum = 0;
+        count = 0;
     }
 
-    public void update( double val ) {
+    public void update(double val, double t) {
+        assert(t >= lastTime);
+
         count++;
-        sum += val;
-        sumsq += val*val;
-        if (val > max)
-            max = val;
-        if (val < min)
-            min = val;
+        sum += lastVal * (t - lastTime);
+        lastVal = val;
+        lastTime = t;
     }
 
     /**
-     * Return the average; requires nonempty set of observations.
+     * Returns the time-weighted average of the observations.
+     * Requires a non-zero observation period.
      */
     public double get( ) {
-        assert(count > 0);
+        assert(lastTime > 0);
 
-        return sum / count;
+        return sum / lastTime;
     }
 
     public void report( ) {
-        assert( count > 1 );
-
-        final double mean = get( );
-        final double variance = 1/(double)(count -1) * (sumsq - 2*mean*sum + count * mean*mean);
-        final double stddev = Math.sqrt(1 / (double)count * (sumsq - 2*mean*sum + count * mean*mean) );
-
         System.out.println();
         System.out.println();
         System.out.println("******************************************************************************");
@@ -70,14 +69,12 @@ public class Mean implements Variable {
         System.out.println("** " + name);
         System.out.println("**");
         System.out.println();
+
         System.out.printf("Number of observations... %d\n", count);
-        System.out.printf("Minimum.................. %.3f\n", min);
-        System.out.printf("Maximum.................. %.3f\n", max);
-        System.out.printf("Mean..................... %.3f\n", get());
-        System.out.printf("Variance................. %.3f\n", variance);
-        System.out.printf("Standard deviation....... %.3f\n", stddev);
+        System.out.printf("Observation period....... %.3f\n", lastTime);
+        System.out.printf("Time-weighted average.... %.3f\n", get());
+
         System.out.println();
         System.out.println("** end " + name);
-
     }
 }

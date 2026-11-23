@@ -19,6 +19,8 @@
  *
  ****************************************************************************/
 
+package jdes;
+
 public interface Variable {
     public double get( );
     public void report( );

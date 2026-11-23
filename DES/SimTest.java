@@ -19,6 +19,8 @@
  *
  ****************************************************************************/
 
+import jdes.*;
+
 public class SimTest extends Simulation {
     public class MyEvent extends Event {
         final String name;

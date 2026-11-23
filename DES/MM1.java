@@ -19,6 +19,7 @@
  *
  ****************************************************************************/
 
+import jdes.*;
 import java.util.LinkedList;
 import java.io.*;
 

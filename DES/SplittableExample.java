@@ -1,11 +1,14 @@
 // SplittableExample.java
+// Compile with javac SplittableExample.java
+// Run with java SplittableExample
+// Moreno Marzolla 2026-11-23
 import java.util.*;
 
 public class SplittableExample {
 
     public static void main(String[] args)
     {
-        SplittableRandom rng = new SplittableRandom();
+        SplittableRandom rng = new SplittableRandom(42);
         SplittableRandom anotherRng = rng.split();
         // Get numbers from the first stream
         System.out.println(rng.nextDouble());
