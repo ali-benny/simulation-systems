@@ -21,35 +21,28 @@
 
 package jdes;
 
+import java.util.SplittableRandom;
 import java.util.Random;
 
 /**
  * Utility class to generate pseudo-random numbers with exponential
- * distribution with rate lambda.
+ * distribution with rate lambda. Each instance of this class uses of
+ * a new random stream produced by the SplittableRandom class.
  */
 public class RandExp {
-    Random rng;
+    static SplittableRandom globalRng = new SplittableRandom();
+    SplittableRandom rng;
     double lambda;
 
     /**
      * This RNG will generate a stream of pseudo-random numbers
      * that exponentially distributed with mean (1/lambda).
      *
-     * This class is for illustrative purposes only and should not
-     * be used in production:
-     *
-     * - Each instance of this class relies on an instance of a
-     *   Java Random object that is initialized
-     *   non-deterministically. A mechanism should be provided to
-     *   initialize the RNG deterministically, to guarantee
-     *   repeatability of simulation runs.
-     *
-     * - In this implementation, different instances of the
-     *   RandExp class are not guaranteed to produce
-     *   non-overlapping sequences of pseudo-random numbers.
+     * TODO: allow the user to explicitly initialize the seed
+     * of the global SplittableRandom generator.
      */
     public RandExp(double lambda) {
-        this.rng = new Random();
+        this.rng = globalRng.split();
         this.lambda = lambda;
     }
 

@@ -39,9 +39,11 @@ import java.io.*;
  */
 public class MM1 extends Simulation {
     Server srv;
-    RandExp arrivals;   // inter-arrival times generator
-    int nCompleted = 0; // number of completed jobs
-    int maxJobs = 1000; // how many jobs to generate
+    double lambda;              // arrival rate
+    double mu;                  // service rate
+    RandExp arrivals;           // inter-arrival times generator
+    int nCompleted = 0;         // number of completed jobs
+    int maxJobs = 1000;         // how many jobs to generate
     PrintStream outStream;
 
     /**
@@ -75,12 +77,17 @@ public class MM1 extends Simulation {
         Mean respTime;         // average response time
 
         public Server( double serviceRate ) {
+            // Compute reference results with queueing theory
+            final double U = lambda / mu;
+            final double R = 1.0 / (mu - lambda);
+            final double Q = U / (1.0 - U);
+
             queue = new LinkedList<Job>();
             srvTime = new RandExp(serviceRate);
             inService = 0;
-            nreq = new TimeWeighted("Mean number of requests");
-            util = new TimeWeighted("Utilization");
-            respTime = new Mean("Mean response time");
+            nreq = new TimeWeighted(String.format("Mean number of requests (expected %.2f)", Q));
+            util = new TimeWeighted(String.format("Utilization (expected %.2f)", U));
+            respTime = new Mean(String.format("Mean response time (expected %.2f)", R));
         }
 
         /**
@@ -92,6 +99,7 @@ public class MM1 extends Simulation {
             if (inService == 0) {
                 schedule(new ServiceStartEvent(now()));
             }
+            nreq.update(njobs(), now());
             System.out.printf("%8.3f %4d Arrival\n", j.arrivalTime, j.jobId);
         }
 
@@ -211,6 +219,8 @@ public class MM1 extends Simulation {
      * Instantiate the simulation.
      */
     public MM1( double arrivalRate, double serviceRate, String fileName, int maxJobs ) {
+        this.lambda = arrivalRate;
+        this.mu = serviceRate;
         this.maxJobs = maxJobs;
         arrivals = new RandExp(arrivalRate);
         srv = new Server(serviceRate);
@@ -237,10 +247,10 @@ public class MM1 extends Simulation {
      * java MM1 0.8 1.0 out.csv 500
      */
     public static void main(String[] args) {
-        double lambda = 0.9;
-        double mu = 1.0;
         String fileName = "mm1.csv";
         int maxJobs = 5000;
+        double lambda = 0.9;
+        double mu = 1.0;
 
         if (args.length > 0)
             lambda = Double.valueOf(args[0]);
