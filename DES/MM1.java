@@ -44,7 +44,7 @@ public class MM1 extends Simulation {
     RandExp arrivals;           // inter-arrival times generator
     int nCompleted = 0;         // number of completed jobs
     int maxJobs = 1000;         // how many jobs to generate
-    PrintStream outStream;
+    PrintStream csvstream;
 
     /**
      * A job is a container of some state variables. We store various
@@ -93,7 +93,7 @@ public class MM1 extends Simulation {
         /**
          * Arrival of a new job j.
          */
-        public void onArrival(Job j) {
+        public void onArrival( Job j ) {
             j.arrivalTime = now();
             queue.add(j);
             if (inService == 0) {
@@ -205,7 +205,7 @@ public class MM1 extends Simulation {
 
         public void execute( ) {
             srv.onServiceComplete( j );
-            outStream.printf("%d,%.3f,%.3f,%.3f\n",
+            csvstream.printf("%d,%.3f,%.3f,%.3f\n",
                              j.jobId, j.arrivalTime, j.serviceStartTime, j.serviceCompleteTime);
         }
     }
@@ -213,7 +213,7 @@ public class MM1 extends Simulation {
     /**
      * The simulation finishes when 1000 jobs are processed.
      */
-    public boolean finished() { return nCompleted >= maxJobs; }
+    public boolean finished( ) { return nCompleted >= maxJobs; }
 
     /**
      * Instantiate the simulation.
@@ -225,11 +225,11 @@ public class MM1 extends Simulation {
         arrivals = new RandExp(arrivalRate);
         srv = new Server(serviceRate);
         try {
-            outStream = new PrintStream(new File(fileName) );
+            csvstream = new PrintStream(new File(fileName));
         } catch(FileNotFoundException ex) {
             System.err.printf("Can not create output file " + fileName);
         }
-        outStream.printf("jobId,arrivalTime,startTime,endTime\n");
+        csvstream.printf("jobId,arrivalTime,startTime,endTime\n");
         // Start the simulation by creating a single arrival event;
         // each arrival generates the next arrival.
         System.out.println("    Time  Job Event");

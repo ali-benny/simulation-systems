@@ -27,19 +27,19 @@ import java.util.Random;
 /**
  * Utility class to generate pseudo-random numbers with exponential
  * distribution with rate lambda. Each instance of this class uses of
- * a new random stream produced by the SplittableRandom class.
+ * a new random stream produced by the SplittableRandom class.  The
+ * "root" RNG is always initialized with the same seed, so each
+ * execution of a program will generate the same sequence of random
+ * numbers.
  */
 public class RandExp {
-    static SplittableRandom globalRng = new SplittableRandom();
+    static SplittableRandom globalRng = new SplittableRandom(42);
     SplittableRandom rng;
     double lambda;
 
     /**
      * This RNG will generate a stream of pseudo-random numbers
      * that exponentially distributed with mean (1/lambda).
-     *
-     * TODO: allow the user to explicitly initialize the seed
-     * of the global SplittableRandom generator.
      */
     public RandExp(double lambda) {
         this.rng = globalRng.split();
