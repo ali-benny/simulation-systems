@@ -22,18 +22,17 @@
 package jdes;
 
 import java.util.SplittableRandom;
-import java.util.Random;
 
 /**
  * Utility class to generate pseudo-random numbers with exponential
  * distribution with rate lambda. Each instance of this class uses of
- * a new random stream produced by the SplittableRandom class.  The
- * "root" RNG is always initialized with the same seed, so each
- * execution of a program will generate the same sequence of random
- * numbers.
+ * a new random stream produced by the SplittableRandom class.
+ *
+ * TODO: Allow the user to specify the seed of the root RNG, to allow
+ * for repeatability of simulation runs.
  */
 public class RandExp {
-    static SplittableRandom globalRng = new SplittableRandom(42);
+    static SplittableRandom globalRng = new SplittableRandom();
     SplittableRandom rng;
     double lambda;
 
